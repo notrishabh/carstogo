@@ -4,6 +4,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 require('./models/db');
 const exphbs = require('express-handlebars');
+const PORT = process.env.PORT || 3000;
 
 const userController = require('./routes/userController');
 const api = require('./routes/api');
@@ -23,7 +24,7 @@ app.set('view engine', 'hbs');
 app.use('/', userController);
 app.use('/api', api);
 
-app.listen(3000, (err)=>{
+app.listen(PORT, (err)=>{
     if(!err){
         console.log("Server Connected ....");
     }else {

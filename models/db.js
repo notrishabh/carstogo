@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/carstogo';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/carstogo';
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err)=>{
     if(!err){
