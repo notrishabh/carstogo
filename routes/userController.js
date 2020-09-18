@@ -8,7 +8,7 @@ var loggedInID = "damn";
 
 route.get('/',(req,res) => {
     res.render('home/user', {
-        title : "User register"
+        title : "User register page"
     });
 });
 
