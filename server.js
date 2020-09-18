@@ -26,7 +26,7 @@ app.use('/api', api);
 
 app.listen(PORT, (err)=>{
     if(!err){
-        console.log("Server Connected ....");
+        console.log("Server Connected on "+PORT);
     }else {
         console.log("Error in server connection : " + err);
     }
