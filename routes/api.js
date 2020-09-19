@@ -7,6 +7,15 @@ const Vehicle = mongoose.model('vehicle');
 
 
 route.get('/users', (req,res)=>{
+    if(Object.keys(req.query).length === 0){
+        User.find((err,docs)=> {
+            if(!err){
+                res.send(docs);
+            }else{
+                console.log("Error in list" + err);
+            }
+        });
+    }else{
     User.find(({name : req.query.name}), (err,docs)=> {
         if(!err){
             res.send(docs);
@@ -14,8 +23,19 @@ route.get('/users', (req,res)=>{
             console.log("Error in list" + err);
         }
     });
+}
+
 });
 route.get('/packages', (req,res)=>{
+    if(Object.keys(req.query).length === 0){
+        Package.find((err,docs)=> {
+            if(!err){
+                res.send(docs);
+            }else{
+                console.log("Error in list" + err);
+            }
+        });
+    }else{
     Package.find(({name : req.query.name}), (err,docs)=> {
         if(!err){
             res.send(docs);
@@ -23,15 +43,26 @@ route.get('/packages', (req,res)=>{
             console.log("Error in list" + err);
         }
     });
+}
 });
 route.get('/vehicles', (req,res)=>{
-    Vehicle.find(({make : req.query.make}), (err,docs)=>{
-        if(!err){
-            res.send(docs);
-        }else{
-            console.log("Error in list" + err);
-        }
-    });
+    if(Object.keys(req.query).length === 0){
+        Vehicle.find((err,docs)=>{
+            if(!err){
+                res.send(docs);
+            }else{
+                console.log("Error in list" + err);
+            }
+        });
+    }else{
+        Vehicle.find(({make : req.query.make}), (err,docs)=>{
+            if(!err){
+                res.send(docs);
+            }else{
+                console.log("Error in list" + err);
+            }
+        });
+    }
 });
 
 module.exports = route;
