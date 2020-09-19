@@ -11,3 +11,4 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFind
 
 require('./user');
 require('./package');
+require('./vehicle');

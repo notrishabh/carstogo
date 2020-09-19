@@ -82,4 +82,5 @@ var vehicle = new mongoose.Schema(
     
     }
 );
+mongoose.model('vehicle', vehicle);
 

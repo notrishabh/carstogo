@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const route = express.Router();
 const User = mongoose.model('user');
 const Package = mongoose.model('package');
+const Vehicle = mongoose.model('vehicle');
 
 
 route.get('/users', (req,res)=>{
@@ -15,8 +16,16 @@ route.get('/users', (req,res)=>{
     });
 });
 route.get('/packages', (req,res)=>{
-    var packages = req.query.name;
     Package.find(({name : req.query.name}), (err,docs)=> {
+        if(!err){
+            res.send(docs);
+        }else{
+            console.log("Error in list" + err);
+        }
+    });
+});
+route.get('/vehicles', (req,res)=>{
+    Vehicle.find(({make : req.query.make}), (err,docs)=>{
         if(!err){
             res.send(docs);
         }else{
