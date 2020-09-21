@@ -10,7 +10,8 @@ route.get('/users', (req,res)=>{
     if(Object.keys(req.query).length === 0){
         User.find((err,docs)=> {
             if(!err){
-                res.send(docs);
+                res.header("Content-Type", 'application/json');
+                res.send(JSON.stringify(docs, null, 4));
             }else{
                 console.log("Error in list" + err);
             }
@@ -18,7 +19,8 @@ route.get('/users', (req,res)=>{
     }else{
     User.find(({name : req.query.name}), (err,docs)=> {
         if(!err){
-            res.send(docs);
+            res.header("Content-Type", 'application/json');
+            res.send(JSON.stringify(docs, null, 4));
         }else{
             console.log("Error in list" + err);
         }
@@ -30,7 +32,8 @@ route.get('/packages', (req,res)=>{
     if(Object.keys(req.query).length === 0){
         Package.find((err,docs)=> {
             if(!err){
-                res.send(docs);
+                res.header("Content-Type", 'application/json');
+                res.send(JSON.stringify(docs, null, 4));
             }else{
                 console.log("Error in list" + err);
             }
@@ -38,7 +41,8 @@ route.get('/packages', (req,res)=>{
     }else{
     Package.find(({name : req.query.name}), (err,docs)=> {
         if(!err){
-            res.send(docs);
+            res.header("Content-Type", 'application/json');
+            res.send(JSON.stringify(docs, null, 4));
         }else{
             console.log("Error in list" + err);
         }
@@ -49,7 +53,8 @@ route.get('/vehicles', (req,res)=>{
     if(Object.keys(req.query).length === 0){
         Vehicle.find((err,docs)=>{
             if(!err){
-                res.send(docs);
+                res.header("Content-Type", 'application/json');
+                res.send(JSON.stringify(docs, null, 4));
             }else{
                 console.log("Error in list" + err);
             }
@@ -57,7 +62,8 @@ route.get('/vehicles', (req,res)=>{
     }else{
         Vehicle.find(({make : req.query.make}), (err,docs)=>{
             if(!err){
-                res.send(docs);
+                res.header("Content-Type", 'application/json');
+                res.send(JSON.stringify(docs, null, 4));
             }else{
                 console.log("Error in list" + err);
             }
